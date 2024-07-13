@@ -3,7 +3,6 @@ const cors = require('cors');
 const http = require('http');
 const { setupWebSocket } = require('./services/websocketService');
 const jobRoutes = require('./routes/jobRoutes');
-const { processJobs } = require('./services/jobService');
 require('dotenv').config();
 
 const app = express();
@@ -18,7 +17,5 @@ app.use('/api/jobs', jobRoutes);
 
 // WebSocket setup
 setupWebSocket(server);
-
-processJobs();
 
 module.exports = server;
