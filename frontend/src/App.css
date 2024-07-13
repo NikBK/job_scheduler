@@ -95,19 +95,21 @@ button[type='submit']:hover {
 
 
 .job-list-container {
-  width: 50%;
-  max-width: 600px;
-  margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
 
-.job-list-container h2 {
-  margin-bottom: 20px;
-  text-align: center;
+.job-columns {
+  display: flex;
+  gap: 20px;
+  /* Adjust the gap between columns */
+}
+
+.job-column {
+  flex: 1;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .job-list {
@@ -115,21 +117,16 @@ button[type='submit']:hover {
   padding: 0;
 }
 
-.empty-list {
-  color: #999;
-  text-align: center;
-}
-
 .job-item {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #fff;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
 }
 
-.job-item:hover {
-  background-color: #f0f0f0;
+.job-item:last-child {
+  margin-bottom: 0;
 }
 
 .job-name {
@@ -140,7 +137,6 @@ button[type='submit']:hover {
   margin-left: 10px;
 }
 
-.job-details {
-  margin-top: 5px;
-  color: #666;
+.job-duration {
+  color: #666666;
 }
