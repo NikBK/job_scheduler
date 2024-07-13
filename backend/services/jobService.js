@@ -1,15 +1,17 @@
 const { addJob, getJobs, updateJobStatus, getSJFJob } = require('../models/jobModel');
 const { broadcastJobUpdate } = require('./websocketService');
 
-// Business logic functions
+// Service to add new Job
 const addNewJob = (name, duration) => {
     return addJob(name, duration);
 };
 
+// Service to get all existing jobs
 const getAllJobs = () => {
     return getJobs();
 };
 
+// Service that changes the status of Shortest Job
 const processJobs = () => {
     setTimeout(() => {
         const job = getSJFJob();

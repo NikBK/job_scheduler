@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { w3cwebsocket as WebSocket } from 'websocket';
 import { WEB_SOCKET_URL } from '../constants/config';
 
+// Set up websocket client
 const useWebSocket = () => {
     const [client] = useState(new WebSocket(WEB_SOCKET_URL));
 

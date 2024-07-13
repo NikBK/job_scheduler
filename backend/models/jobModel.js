@@ -1,12 +1,11 @@
 const { v4: uuidv4 } = require('uuid');
 
-// let jobs = [];
 let jobs = [
     { id: 1, status: 'pending', duration: 10, name: 'job1' },
     { id: 2, status: 'pending', duration: 10, name: 'job2' }
 ];
 
-
+// Adds new job
 const addJob = (name, duration) => {
     const newJob = {
         id: uuidv4(),
@@ -18,10 +17,12 @@ const addJob = (name, duration) => {
     return newJob;
 };
 
+// Fetch all jobs
 const getJobs = () => {
     return jobs;
 };
 
+// Updates status of a given jobId
 const updateJobStatus = (jobId, status) => {
     const job = jobs.find(j => j.id === jobId);
     if (job) {
@@ -30,8 +31,8 @@ const updateJobStatus = (jobId, status) => {
     return job;
 };
 
+// SJF algorithm (Shortest Job First)
 const getSJFJob = () => {
-    // Example implementation of SJF algorithm
     return jobs.filter(job => job.status === 'pending')
         .reduce((prev, current) => {
             return (!prev || current.duration < prev.duration) ? current : prev;

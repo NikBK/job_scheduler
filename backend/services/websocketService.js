@@ -2,6 +2,7 @@ const WebSocket = require('websocket');
 
 let wsServer;
 
+// Set up websocket server
 const setupWebSocket = (server) => {
     wsServer = new WebSocket.server({
         httpServer: server,
@@ -24,6 +25,7 @@ const setupWebSocket = (server) => {
     });
 };
 
+// Broadcast the job to the client
 const broadcastJobUpdate = (updatedJob) => {
     if (wsServer) {
         wsServer.broadcast(JSON.stringify(updatedJob));
