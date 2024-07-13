@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
 const JobList = ({ jobs, setJobs }) => {
   // const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/jobs"); // Adjust URL as per your backend
+        setJobs(response.data);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      }
+    };
+
     fetchJobs();
   }, []);
 
-  const fetchJobs = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/api/jobs"); // Adjust URL as per your backend
-      setJobs(response.data);
-    } catch (error) {
-      console.error("Error fetching jobs:", error);
-    }
-  };
 
   const getStatusColor = (status) => {
     switch (status) {
