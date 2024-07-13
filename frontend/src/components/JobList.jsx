@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const JobList = () => {
-  const [jobs, setJobs] = useState([]);
+const JobList = ({ jobs, setJobs }) => {
+  // const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     fetchJobs();

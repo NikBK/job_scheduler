@@ -21,7 +21,7 @@ const App = () => {
       </header>
       <main className="App-main">
         <JobForm />
-        <JobList jobs={jobs} />
+        <JobList jobs={jobs} setJobs={setJobs} />
         <WebSocketClient onJobUpdate={handleJobUpdate} />
       </main>
       <footer className="App-footer">
