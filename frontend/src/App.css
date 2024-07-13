@@ -1,14 +1,132 @@
-.App {
+* {
   text-align: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.App-main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.App-footer {
+  background-color: #282c34;
+  color: white;
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+
+.job-form-container {
+  position: sticky;
+  top: 0;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-form-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 0px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type='submit'] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+
+.job-list-container {
+  width: 50%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-list-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.job-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.empty-list {
+  color: #999;
+  text-align: center;
+}
+
+.job-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.job-item:hover {
+  background-color: #f0f0f0;
+}
+
+.job-name {
+  font-weight: bold;
+}
+
+.job-status {
+  margin-left: 10px;
+}
+
+.job-details {
+  margin-top: 5px;
+  color: #666;
 }

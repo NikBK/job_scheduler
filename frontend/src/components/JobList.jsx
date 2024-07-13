@@ -1,50 +1,45 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from 'react';
+import useJobs from '../hooks/useJobs';
 
-const JobList = ({ jobs, setJobs }) => {
-  // const [jobs, setJobs] = useState([]);
-
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/api/jobs"); // Adjust URL as per your backend
-        setJobs(response.data);
-      } catch (error) {
-        console.error("Error fetching jobs:", error);
-      }
-    };
-
-    fetchJobs();
-  }, []);
-
+const JobList = () => {
+  const { jobs } = useJobs();
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "pending":
-        return "orange";
-      case "running":
-        return "blue";
-      case "completed":
-        return "green";
-      case "failed":
-        return "red";
+      case 'pending':
+        return 'orange';
+      case 'running':
+        return 'blue';
+      case 'completed':
+        return 'green';
+      case 'failed':
+        return 'red';
       default:
-        return "black";
+        return 'black';
     }
   };
 
   return (
-    <div>
+    <div className="job-list-container">
       <h2>Job List</h2>
-      <ul>
-        {jobs.map((job) => (
-          <li key={job.id}>
-            <span style={{ color: getStatusColor(job.status) }}>
-              {job.name}
-            </span>
-            <span> - Status: {job.status}</span>
-          </li>
-        ))}
+      <ul className="job-list">
+        {jobs.length === 0 ? (
+          <li className="empty-list">No jobs available</li>
+        ) : (
+          jobs.map((job) => (
+            <li key={job.id} className="job-item">
+              <div>
+                <span className="job-name">{job.name}</span>
+                <span className="job-status" style={{ color: getStatusColor(job.status) }}>
+                  {job.status}
+                </span>
+              </div>
+              <div className="job-details">
+                <span className="job-duration">Duration: {job.duration} seconds</span>
+              </div>
+            </li>
+          ))
+        )}
       </ul>
     </div>
   );

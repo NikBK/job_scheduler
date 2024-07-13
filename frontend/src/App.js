@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
-import './App.css'; // Assuming you have a CSS file for styling
+import React from 'react';
+import './App.css';
 import JobList from './components/JobList';
 import JobForm from './components/JobForm';
-import WebSocketClient from './components/WebSocketClient';
+import useWebSocket from './hooks/useWebSocket';
+
 
 const App = () => {
-  const [jobs, setJobs] = useState([]);
-
-  const handleJobUpdate = (updatedJob) => {
-    // Update jobs array with the updated job from WebSocket
-    setJobs((prevJobs) =>
-      prevJobs.map((job) => (job.id === updatedJob.id ? updatedJob : job))
-    );
-  };
+  const client = useWebSocket();
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Job Scheduler App</h1>
       </header>
+
       <main className="App-main">
         <JobForm />
-        <JobList jobs={jobs} setJobs={setJobs} />
-        <WebSocketClient onJobUpdate={handleJobUpdate} />
+        <JobList />
       </main>
+
       <footer className="App-footer">
-        <p>&copy; 2024 Job Scheduler App</p>
+        <p>&copy; {new Date().getFullYear()} Job Scheduler App</p>
       </footer>
     </div>
   );

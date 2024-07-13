@@ -10,6 +10,10 @@ const getAllJobs = () => {
     return getJobs();
 };
 
+// const updateJob = (jobId, status) => {
+//     return updateJobStatus(jobId, status);
+// };
+
 const processJobs = () => {
     setTimeout(() => {
         const job = getSJFJob();
@@ -25,7 +29,8 @@ const processJobs = () => {
 };
 
 module.exports = {
-    addNewJob,
     getAllJobs,
+    addNewJob,
+    // updateJob,
     processJobs,
 };
